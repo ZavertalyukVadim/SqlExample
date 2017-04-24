@@ -23,6 +23,8 @@ public class Announcement {
     @Column(name = "living_places")
     private Integer livingPlaces;
 
+    public Announcement() {
+    }
 
     public Integer getId() {
         return id;

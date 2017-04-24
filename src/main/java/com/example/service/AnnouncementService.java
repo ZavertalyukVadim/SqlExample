@@ -58,4 +58,8 @@ public class AnnouncementService {
         rent2.setTo(localDateTo2);
         rentDao.save(rent2);
     }
+
+    public List<Announcement> search() {
+        return announcementDao.search();
+    }
 }

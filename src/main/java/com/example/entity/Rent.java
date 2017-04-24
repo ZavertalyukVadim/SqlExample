@@ -19,6 +19,9 @@ public class Rent {
     @Column(name = "announcement_id")
     private Integer announcementsId;
 
+    public Rent() {
+    }
+
     public Integer getAnnouncementsId() {
         return announcementsId;
     }

@@ -35,4 +35,10 @@ public class AnnouncementController {
     public void addTestData(){
         announcementService.addTestInformations();
     }
+
+    @GetMapping
+    @RequestMapping(value = "/search")
+    public List<Announcement> search(){
+        return announcementService.search();
+    }
 }
