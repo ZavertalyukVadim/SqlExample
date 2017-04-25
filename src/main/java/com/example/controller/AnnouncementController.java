@@ -33,7 +33,7 @@ public class AnnouncementController {
     @GetMapping
     @RequestMapping(value = "/test")
     public void addTestData(){
-        announcementService.addTestInformations();
+        announcementService.addTestInformation();
     }
 
     @GetMapping

@@ -21,15 +21,15 @@ public class AnnouncementService {
         this.rentDao = rentDao;
     }
 
-    public List<Announcement> getAllAnnouncement(){
+    public List<Announcement> getAllAnnouncement() {
         return announcementDao.findAll();
     }
 
-    public List<Rent> getAllRents(){
+    public List<Rent> getAllRents() {
         return rentDao.findAll();
     }
 
-    public void addTestInformations() {
+    public void addTestInformation() {
         Announcement announcement = new Announcement();
         announcement.setDescription("Description");
         announcement.setLivingPlaces(1);
@@ -37,29 +37,23 @@ public class AnnouncementService {
         announcement.setTitle("Title");
         announcementDao.save(announcement);
         Rent rent = new Rent();
-        LocalDate localDateFrom = LocalDate.of(2017,4,10);
-        LocalDate localDateTo = LocalDate.of(2017,4,15);
         rent.setAnnouncement(announcement);
-        rent.setFrom(localDateFrom);
-        rent.setTo(localDateTo);
+        rent.setFrom(LocalDate.of(2017, 4, 10));
+        rent.setTo(LocalDate.of(2017, 4, 15));
         rentDao.save(rent);
         Rent rent1 = new Rent();
-        LocalDate localDateFrom1= LocalDate.of(2017,4,20);
-        LocalDate localDateTo1 = LocalDate.of(2017,4,25);
         rent1.setAnnouncement(announcement);
-        rent1.setFrom(localDateFrom1);
-        rent1.setTo(localDateTo1);
+        rent1.setFrom(LocalDate.of(2017, 4, 20));
+        rent1.setTo(LocalDate.of(2017, 4, 25));
         rentDao.save(rent1);
         Rent rent2 = new Rent();
-        LocalDate localDateFrom2= LocalDate.of(2017,4,25);
-        LocalDate localDateTo2 = LocalDate.of(2017,4,30);
         rent2.setAnnouncement(announcement);
-        rent2.setFrom(localDateFrom2);
-        rent2.setTo(localDateTo2);
+        rent2.setFrom(LocalDate.of(2017, 4, 25));
+        rent2.setTo(LocalDate.of(2017, 4, 30));
         rentDao.save(rent2);
     }
 
     public List<Announcement> search() {
-        return announcementDao.search(LocalDate.of(2017,4,16),LocalDate.of(2017,4,18));
+        return announcementDao.search(LocalDate.of(2017, 4, 16), LocalDate.of(2017, 4, 18));
     }
 }

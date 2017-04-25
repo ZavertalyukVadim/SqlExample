@@ -1,7 +1,10 @@
 package com.example.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "announcements")
@@ -23,7 +26,7 @@ public class Announcement {
     @Column(name = "living_places")
     private Integer livingPlaces;
 
-
+    @JsonBackReference
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "announcement", cascade = CascadeType.ALL)
     private List<Rent> rents = new ArrayList<>();
 
