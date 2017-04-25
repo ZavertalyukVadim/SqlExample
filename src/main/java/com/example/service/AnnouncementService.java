@@ -54,6 +54,6 @@ public class AnnouncementService {
     }
 
     public List<Announcement> search() {
-        return announcementDao.search(LocalDate.of(2017, 4, 16), LocalDate.of(2017, 4, 18));
+        return announcementDao.searchSql(LocalDate.of(2017, 4, 16), LocalDate.of(2017, 4, 18));
     }
 }

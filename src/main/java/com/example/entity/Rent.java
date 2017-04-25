@@ -10,10 +10,10 @@ public class Rent {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "`from`")
+    @Column(name = "from")
     private LocalDate from;
 
-    @Column(name = "`to`")
+    @Column(name = "to")
     private LocalDate to;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -21,6 +21,14 @@ public class Rent {
     private Announcement announcement;
 
     public Rent() {
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public Announcement getAnnouncement() {
