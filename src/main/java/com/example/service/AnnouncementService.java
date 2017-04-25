@@ -39,27 +39,27 @@ public class AnnouncementService {
         Rent rent = new Rent();
         LocalDate localDateFrom = LocalDate.of(2017,4,10);
         LocalDate localDateTo = LocalDate.of(2017,4,15);
-        rent.setAnnouncementsId(announcement.getId());
+        rent.setAnnouncement(announcement);
         rent.setFrom(localDateFrom);
         rent.setTo(localDateTo);
         rentDao.save(rent);
         Rent rent1 = new Rent();
         LocalDate localDateFrom1= LocalDate.of(2017,4,20);
         LocalDate localDateTo1 = LocalDate.of(2017,4,25);
-        rent1.setAnnouncementsId(announcement.getId());
+        rent1.setAnnouncement(announcement);
         rent1.setFrom(localDateFrom1);
         rent1.setTo(localDateTo1);
         rentDao.save(rent1);
         Rent rent2 = new Rent();
         LocalDate localDateFrom2= LocalDate.of(2017,4,25);
         LocalDate localDateTo2 = LocalDate.of(2017,4,30);
-        rent2.setAnnouncementsId(announcement.getId());
+        rent2.setAnnouncement(announcement);
         rent2.setFrom(localDateFrom2);
         rent2.setTo(localDateTo2);
         rentDao.save(rent2);
     }
 
     public List<Announcement> search() {
-        return announcementDao.search();
+        return announcementDao.search(LocalDate.of(2017,4,16),LocalDate.of(2017,4,18));
     }
 }

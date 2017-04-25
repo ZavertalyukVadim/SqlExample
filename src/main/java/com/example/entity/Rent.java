@@ -1,5 +1,8 @@
 package com.example.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 
@@ -16,18 +19,20 @@ public class Rent {
     @Column(name = "`to`")
     private LocalDate to;
 
-    @Column(name = "announcement_id")
-    private Integer announcementsId;
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "announcement_id")
+    private Announcement announcement;
 
     public Rent() {
     }
 
-    public Integer getAnnouncementsId() {
-        return announcementsId;
+    public Announcement getAnnouncement() {
+        return announcement;
     }
 
-    public void setAnnouncementsId(Integer announcementsId) {
-        this.announcementsId = announcementsId;
+    public void setAnnouncement(Announcement announcement) {
+        this.announcement = announcement;
     }
 
     public LocalDate getFrom() {

@@ -1,7 +1,7 @@
 package com.example.entity;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.util.*;
 
 @Entity
 @Table(name = "announcements")
@@ -22,6 +22,10 @@ public class Announcement {
 
     @Column(name = "living_places")
     private Integer livingPlaces;
+
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "announcement", cascade = CascadeType.ALL)
+    private List<Rent> rents = new ArrayList<>();
 
     public Announcement() {
     }
@@ -66,4 +70,11 @@ public class Announcement {
         this.livingPlaces = livingPlaces;
     }
 
+    public List<Rent> getRents() {
+        return rents;
+    }
+
+    public void setRents(List<Rent> rents) {
+        this.rents = rents;
+    }
 }
